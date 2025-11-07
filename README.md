@@ -270,24 +270,6 @@ Contributions are welcome! Please follow these steps:
 - Test on multiple platforms when possible
 - Ensure UI responsiveness across different screen sizes
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- Built with Microsoft's .NET MAUI framework
-- Uses Material Design principles for UI/UX
-- Inspired by modern inventory management solutions
-
-## Known Issues
-
-- None currently reported
-
-## Support
-
-For support, please create an issue in the GitHub repository or contact the development team.
-
 ---
 
 **Version**: 1.0  
