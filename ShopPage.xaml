@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Project2._3.ShopPage"
+             Title="Shop">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Label Grid.Row="0" 
+               Text="Shop - Browse Available Items" 
+               FontAttributes="Bold" 
+               FontSize="Large" 
+               HorizontalOptions="Center" 
+               Margin="10" />
+
+        <!-- Items List -->
+        <ScrollView Grid.Row="1" Margin="10">
+            <CollectionView x:Name="ItemsCollectionView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10" Margin="5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Frame Grid.Row="0" Grid.ColumnSpan="3" 
+                                   BorderColor="LightGray" 
+                                   Padding="10" 
+                                   HasShadow="True"
+                                   BackgroundColor="White">
+                                <StackLayout>
+                                    <Label Text="{Binding ItemName}" 
+                                           FontAttributes="Bold" 
+                                           FontSize="Medium"
+                                           TextColor="Black" />
+                                    <Label Text="{Binding ItemDescription}" 
+                                           FontSize="Small" 
+                                           TextColor="Gray" />
+                                    <Label Text="{Binding ItemPrice, StringFormat='Price: {0:C}'}" 
+                                           FontAttributes="Bold" 
+                                           TextColor="Green" 
+                                           FontSize="Medium" />
+                                    
+                                    <!-- Stock Information -->
+                                    <StackLayout Orientation="Horizontal" Spacing="10" Margin="0,5,0,0">
+                                        <Label Text="{Binding ItemAmountAvailable, StringFormat='Quantity: {0} units'}" 
+                                               FontSize="Small" 
+                                               FontAttributes="Bold"
+                                               TextColor="DarkBlue" 
+                                               VerticalOptions="Center" />
+                                        <Label Text="{Binding StockStatus}" 
+                                               FontSize="Small" 
+                                               FontAttributes="Bold"
+                                               TextColor="{Binding StockStatusColor}"
+                                               BackgroundColor="LightGray"
+                                               Padding="8,3"
+                                               HorizontalOptions="End" />
+                                    </StackLayout>
+                                    
+                                    <StackLayout Orientation="Horizontal" Margin="0,10,0,0">
+                                        <Button Text="Add to Cart" 
+                                                Clicked="OnAddToCartClicked" 
+                                                CommandParameter="{Binding .}"
+                                                BackgroundColor="LightBlue"
+                                                HorizontalOptions="EndAndExpand" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+
+        <!-- Cart Summary -->
+        <Frame Grid.Row="2" 
+               BackgroundColor="LightYellow" 
+               Margin="10" 
+               Padding="10">
+            <StackLayout>
+                <Label x:Name="CartSummaryLabel" 
+                       Text="Cart: 0 items | Total: $0.00" 
+                       FontAttributes="Bold" 
+                       HorizontalOptions="Center" />
+                <Button x:Name="ViewCartButton" 
+                        Text="View Cart" 
+                        Clicked="OnViewCartClicked" 
+                        BackgroundColor="Orange" />
+            </StackLayout>
+        </Frame>
+
+        <!-- Action Buttons -->
+        <StackLayout Grid.Row="3" 
+                     Orientation="Horizontal" 
+                     HorizontalOptions="FillAndExpand" 
+                     Margin="10">
+            <Button Text="Checkout" 
+                    x:Name="CheckoutButton" 
+                    Clicked="OnCheckoutClicked" 
+                    BackgroundColor="Green" 
+                    TextColor="White"
+                    HorizontalOptions="FillAndExpand" />
+            <Button Text="Clear Cart" 
+                    Clicked="OnClearCartClicked" 
+                    BackgroundColor="Red" 
+                    TextColor="White"
+                    HorizontalOptions="FillAndExpand" />
+        </StackLayout>
+    </Grid>
+
+</ContentPage>

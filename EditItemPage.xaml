@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Project2._3.EditItemPage"
+             Title="Edit Item">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30,0" Spacing="25">
+
+            <Label Text="Edit Item Details" 
+                   FontAttributes="Bold" 
+                   FontSize="Large" 
+                   HorizontalOptions="Center" 
+                   Margin="0,20,0,30" />
+
+            <!-- Item ID (Read-only) -->
+            <StackLayout>
+                <Label Text="Item ID:" FontAttributes="Bold" />
+                <Label x:Name="ItemIdLabel" 
+                       Text="" 
+                       FontSize="Medium" 
+                       TextColor="Gray" 
+                       BackgroundColor="LightGray" 
+                       Padding="10" />
+            </StackLayout>
+
+            <!-- Item Name -->
+            <StackLayout>
+                <Label Text="Name:" FontAttributes="Bold" />
+                <Entry x:Name="NameEntry" 
+                       Placeholder="Enter item name" />
+            </StackLayout>
+
+            <!-- Description -->
+            <StackLayout>
+                <Label Text="Description:" FontAttributes="Bold" />
+                <Entry x:Name="DescriptionEntry" 
+                       Placeholder="Enter item description" />
+            </StackLayout>
+
+            <!-- Price -->
+            <StackLayout>
+                <Label Text="Price:" FontAttributes="Bold" />
+                <Entry x:Name="PriceEntry" 
+                       Placeholder="Enter price" 
+                       Keyboard="Numeric" />
+            </StackLayout>
+
+            <!-- Quantity -->
+            <StackLayout>
+                <Label Text="Quantity Available:" FontAttributes="Bold" />
+                <Entry x:Name="AmountEntry" 
+                       Placeholder="Enter quantity" 
+                       Keyboard="Numeric" />
+            </StackLayout>
+
+            <!-- Action Buttons -->
+            <StackLayout Orientation="Horizontal" 
+                         HorizontalOptions="FillAndExpand" 
+                         Spacing="10" 
+                         Margin="0,30,0,0">
+                <Button Text="Save Changes" 
+                        Clicked="OnSaveClicked" 
+                        BackgroundColor="Green" 
+                        TextColor="White"
+                        HorizontalOptions="FillAndExpand" />
+                <Button Text="Cancel" 
+                        Clicked="OnCancelClicked" 
+                        BackgroundColor="Gray" 
+                        TextColor="White"
+                        HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

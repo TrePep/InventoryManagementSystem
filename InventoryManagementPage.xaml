@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Project2._3.InventoryManagementPage"
+             Title="Inventory Management">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Label Grid.Row="0" 
+               Text="Inventory Management" 
+               FontAttributes="Bold" 
+               FontSize="Large" 
+               HorizontalOptions="Center" 
+               Margin="10" />
+
+        <!-- Action Buttons -->
+        <StackLayout Grid.Row="1" 
+                     Orientation="Horizontal" 
+                     HorizontalOptions="FillAndExpand" 
+                     Margin="10,5">
+            <Button Text="Add New Item" 
+                    Clicked="AddItem" 
+                    BackgroundColor="Green" 
+                    TextColor="White"
+                    HorizontalOptions="FillAndExpand" />
+            <Button Text="Add Sample Items" 
+                    Clicked="PopulateWithFakeItems" 
+                    BackgroundColor="LightGreen" 
+                    HorizontalOptions="FillAndExpand" 
+                    Margin="5,0,0,0" />
+        </StackLayout>
+
+        <!-- Inventory List -->
+        <ScrollView Grid.Row="2" Margin="10">
+            <CollectionView x:Name="InventoryCollectionView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="5" Margin="5,2">
+                            <Frame BorderColor="LightGray" 
+                                   Padding="15" 
+                                   HasShadow="True"
+                                   BackgroundColor="White">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <!-- Item Details -->
+                                    <StackLayout Grid.Row="0" Grid.Column="0" Spacing="5">
+                                        <Label Text="{Binding ItemName}" 
+                                               FontAttributes="Bold" 
+                                               FontSize="Medium"
+                                               TextColor="Black" />
+                                        <Label Text="{Binding ItemDescription}" 
+                                               FontSize="Small" 
+                                               TextColor="Gray" />
+                                        <Label Text="{Binding ItemPrice, StringFormat='Price: {0:C}'}" 
+                                               FontAttributes="Bold" 
+                                               TextColor="Green" />
+                                        <StackLayout Orientation="Horizontal" Spacing="15">
+                                            <Label Text="{Binding ItemId, StringFormat='ID: {0}'}" 
+                                                   FontSize="Small" 
+                                                   TextColor="DarkGray" />
+                                            <Label Text="{Binding ItemAmountAvailable, StringFormat='Stock: {0} units'}" 
+                                                   FontSize="Small" 
+                                                   FontAttributes="Bold"
+                                                   TextColor="Blue" />
+                                        </StackLayout>
+                                    </StackLayout>
+
+                                    <!-- Action Buttons -->
+                                    <StackLayout Grid.Row="0" Grid.Column="1" 
+                                                 Orientation="Vertical" 
+                                                 Spacing="5"
+                                                 VerticalOptions="Center">
+                                        <Button Text="Edit" 
+                                                Clicked="OnEditItemClicked"
+                                                CommandParameter="{Binding .}"
+                                                BackgroundColor="Orange" 
+                                                TextColor="White"
+                                                WidthRequest="80"
+                                                HeightRequest="35" />
+                                        <Button Text="Delete" 
+                                                Clicked="OnDeleteItemClicked"
+                                                CommandParameter="{Binding .}"
+                                                BackgroundColor="Red" 
+                                                TextColor="White"
+                                                WidthRequest="80"
+                                                HeightRequest="35" />
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+
+        <!-- Status and Summary -->
+        <Frame Grid.Row="3" 
+               BackgroundColor="LightYellow" 
+               Margin="10" 
+               Padding="10">
+            <StackLayout>
+                <Label x:Name="InventorySummaryLabel" 
+                       Text="Total Items: 0" 
+                       FontAttributes="Bold" 
+                       HorizontalOptions="Center" />
+            </StackLayout>
+        </Frame>
+    </Grid>
+
+</ContentPage>

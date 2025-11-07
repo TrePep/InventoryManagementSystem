@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Project2._3.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+       
+            <Label
+                Text="Welcome!"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <Label
+                Text="Please select one of the following options"
+                Style="{StaticResource SubHeadline}"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
+
+            <Button
+                x:Name="Button1"
+                Text="Inventory Management" 
+                HorizontalOptions="Fill" 
+                Clicked="OnInventoryManagementClicked" />
+            <Button
+                x:Name="Button2"
+                Text="Shop" 
+                HorizontalOptions="Fill" 
+                Clicked="OnShopClicked" />
+            <Button
+                x:Name="Button3"
+                Text="Quit" 
+                HorizontalOptions="Fill" 
+                Clicked="OnQuitClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
