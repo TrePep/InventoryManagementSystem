@@ -12,8 +12,6 @@ A comprehensive inventory management and shopping application built with .NET MA
 - [Usage](#usage)
 - [Project Structure](#project-structure)
 - [Technical Details](#technical-details)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Overview
 
