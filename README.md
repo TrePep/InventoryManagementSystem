@@ -70,8 +70,6 @@ This Inventory Management System is a modern, cross-platform application that pr
 
 ---
 
-> **📝 To use these screenshots**: Replace the placeholder files in `docs/images/` with your actual screenshot images using the same filenames. The screenshots show a professional, clean interface with excellent UX design and clear information hierarchy.
-
 ## Prerequisites
 
 Before running this application, ensure you have the following installed:
